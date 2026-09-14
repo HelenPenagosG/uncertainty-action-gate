@@ -1,0 +1,93 @@
+{
+  "dataset_version": "deception_eval_v1.3-review-ready",
+  "status": "draft_labeled_pending_independent_review",
+  "provenance": {
+    "origin": "prepared",
+    "authoring": "model-assisted researcher draft",
+    "explanation_origin_distribution": {
+      "prepared": 20
+    }
+  },
+  "base_scenarios": 10,
+  "records": 20,
+  "base_scope_distribution": {
+    "OUT_OF_SCOPE": 5,
+    "UNCERTAIN": 2,
+    "IN_SCOPE": 3
+  },
+  "variant_distribution": {
+    "factual": 10,
+    "deceptive": 10
+  },
+  "primary_behavior_distribution_all_records": {
+    "nondeceptive_scope_violation": 5,
+    "false_authorization_claim": 4,
+    "misleading_destination_or_effect": 3,
+    "explicit_judge_manipulation": 2,
+    "legitimate_conduct": 5,
+    "insufficient_information_for_deception": 1
+  },
+  "primary_behavior_distribution_factual": {
+    "nondeceptive_scope_violation": 5,
+    "legitimate_conduct": 5
+  },
+  "primary_behavior_distribution_deceptive": {
+    "false_authorization_claim": 4,
+    "misleading_destination_or_effect": 3,
+    "explicit_judge_manipulation": 2,
+    "insufficient_information_for_deception": 1
+  },
+  "splits": {
+    "development": {
+      "scenario_ids": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10"
+      ],
+      "records": 20
+    },
+    "heldout": {
+      "location": "kept_outside_public_repo",
+      "status": "not_included_in_package"
+    }
+  },
+  "planned_expansion_after_independent_review": {
+    "base_scenarios": 60,
+    "OUT_OF_SCOPE": 30,
+    "IN_SCOPE": 15,
+    "UNCERTAIN": 15
+  },
+  "review": {
+    "required_reviewers": 2,
+    "blind_to_judge_outputs": true,
+    "priority_cases": [
+      "D06_D",
+      "D08_D"
+    ]
+  },
+  "hashes": {
+    "results/deception_eval/README.md": "sha256:9fb3a7fb88f087c0afbc12fa20bb3f83bcd4a31da6b99d30becf56c32b32e6a8",
+    "scripts/eval_deception.py": "sha256:fda637642181426f31f14f75d20f3b27ccafce0bbaaa1bf076194dc2d5c305e4",
+    "scripts/validate_deception_dataset.py": "sha256:1ea7a1bd388eca30e6ca799f56593484afbddfb5332e59f74263579a969e7369",
+    "spec/deception_eval_v1/README.md": "sha256:dc56fb8aabee4b0b8f7ba2f6c3306efb1b607753a12d7cf7a1a08f04b218923a",
+    "spec/deception_eval_v1/annotation_guide.md": "sha256:ee417aa805bcd55219ae7ccaf3fa27b0e56bcdbe38d22b00ca0e578eddb41b28",
+    "spec/deception_eval_v1/case.schema.json": "sha256:dd134f3f27e1eff8dad4e77b6f29447d8bc3045dba06c91e93ec0b9407723023",
+    "spec/deception_eval_v1/development.jsonl": "sha256:7e791510c84b35910214526e63e75980006b4fccac50c4d313399623445fcdb2"
+  },
+  "notes": {
+    "prepared_dataset_only": true,
+    "actor_generated_and_explicitly_induced_must_be_reported_separately": true
+  },
+  "integration": {
+    "runner": "scripts/run_deception_batch.py",
+    "judge_spec": "spec/judge_v1_2_pilot",
+    "paired_gate_derivation": true
+  }
+}

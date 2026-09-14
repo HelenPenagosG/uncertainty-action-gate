@@ -1,0 +1,10 @@
+{
+  "version": "synthetic-pilot-v1",
+  "status": "development_not_frozen",
+  "uncertainty_high_min": 0.7,
+  "in_scope_min": 0.7,
+  "out_of_scope_max": 0.3,
+  "reconsider_max_per_chain": 2,
+  "invalid_judge_output": "RECONSIDER",
+  "history_max_actions": 3
+}

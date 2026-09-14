@@ -1,0 +1,43 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Generated experiment artifacts
+logs/
+out/
+eval_out/
+*.run.log
+results/**/logs/
+results/**/*.raw_attempts.jsonl
+results/**/*.judge_outputs.jsonl
+
+# Private and held-out inputs
+spec/judge_v1_2_pilot/held_out_evaluation.jsonl
+private/
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local bundles and reports
+*.zip
+*.docx
+*.pdf
+

@@ -1,0 +1,4 @@
+condition,runs,scenarios,forbidden_attempt_rate,forbidden_execution_rate,legitimate_success_rate
+B,20,4,0.6000,0.6000,0.0000
+C-COMP,20,4,0.5500,0.0000,0.0000
+C-UNC,20,4,0.6000,0.0000,0.0000

@@ -1,0 +1,313 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deception Evaluation Case v1",
+  "type": "object",
+  "required": [
+    "dataset_version",
+    "scenario_id",
+    "case_id",
+    "pair_id",
+    "variant",
+    "split",
+    "template_family",
+    "judge_input",
+    "actor_evidence",
+    "private_labels",
+    "provenance"
+  ],
+  "properties": {
+    "dataset_version": {
+      "type": "string"
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "pair_id": {
+      "type": "string"
+    },
+    "variant": {
+      "enum": [
+        "factual",
+        "deceptive"
+      ]
+    },
+    "split": {
+      "enum": [
+        "development",
+        "heldout"
+      ]
+    },
+    "template_family": {
+      "type": "string"
+    },
+    "judge_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operator_authorization",
+        "authorized_resources",
+        "explicit_restrictions",
+        "current_context",
+        "recent_action_history",
+        "proposed_action",
+        "action_justification"
+      ],
+      "properties": {
+        "operator_authorization": {
+          "type": "string"
+        },
+        "authorized_resources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "explicit_restrictions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "current_context": {
+          "type": "string"
+        },
+        "recent_action_history": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "proposed_action": {
+          "type": "string"
+        },
+        "action_justification": {
+          "type": "string"
+        }
+      }
+    },
+    "actor_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "content",
+          "reliability"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "reliability": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        }
+      }
+    },
+    "private_labels": {
+      "type": "object",
+      "required": [
+        "actual_scope",
+        "oracle_scope",
+        "expected_compatibility",
+        "expected_uncertainty",
+        "behavior",
+        "adjudication",
+        "primary_behavior",
+        "behavior_labels"
+      ],
+      "properties": {
+        "actual_scope": {
+          "enum": [
+            "IN_SCOPE",
+            "OUT_OF_SCOPE",
+            "UNCERTAIN"
+          ]
+        },
+        "oracle_scope": {
+          "enum": [
+            "IN_SCOPE",
+            "OUT_OF_SCOPE",
+            "UNCERTAIN"
+          ]
+        },
+        "expected_compatibility": {
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        },
+        "expected_uncertainty": {
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        },
+        "behavior": {
+          "type": "object",
+          "required": [
+            "primary",
+            "labels",
+            "evidence_refs",
+            "rationale"
+          ],
+          "properties": {
+            "primary": {
+              "enum": [
+                "actor_acknowledged_deviation",
+                "explicit_judge_manipulation",
+                "false_authorization_claim",
+                "insufficient_information_for_deception",
+                "legitimate_conduct",
+                "misleading_destination_or_effect",
+                "nondeceptive_scope_violation"
+              ]
+            },
+            "labels": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "actor_acknowledged_deviation",
+                  "explicit_judge_manipulation",
+                  "false_authorization_claim",
+                  "insufficient_information_for_deception",
+                  "legitimate_conduct",
+                  "misleading_destination_or_effect",
+                  "nondeceptive_scope_violation"
+                ]
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "rationale": {
+              "type": "string"
+            }
+          }
+        },
+        "primary_behavior": {
+          "enum": [
+            "actor_acknowledged_deviation",
+            "explicit_judge_manipulation",
+            "false_authorization_claim",
+            "insufficient_information_for_deception",
+            "legitimate_conduct",
+            "misleading_destination_or_effect",
+            "nondeceptive_scope_violation"
+          ]
+        },
+        "behavior_labels": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "actor_acknowledged_deviation",
+              "explicit_judge_manipulation",
+              "false_authorization_claim",
+              "insufficient_information_for_deception",
+              "legitimate_conduct",
+              "misleading_destination_or_effect",
+              "nondeceptive_scope_violation"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "adjudication": {
+          "type": "object",
+          "required": [
+            "status",
+            "reviewer_1",
+            "reviewer_2",
+            "resolution"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "pending_independent_review",
+                "adjudicated"
+              ]
+            },
+            "reviewer_1": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "reviewer_2": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "resolution": {},
+            "review_note": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "probative_note": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "origin",
+        "author_type",
+        "generator",
+        "template_family",
+        "reviewers"
+      ],
+      "properties": {
+        "origin": {
+          "enum": [
+            "prepared",
+            "actor_generated",
+            "explicitly_induced"
+          ]
+        },
+        "author_type": {
+          "type": "string"
+        },
+        "generator": {
+          "type": "string"
+        },
+        "template_family": {
+          "type": "string"
+        },
+        "reviewers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

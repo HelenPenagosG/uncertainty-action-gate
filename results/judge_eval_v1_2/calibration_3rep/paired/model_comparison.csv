@@ -1,0 +1,11 @@
+model_id,n_outputs,n_valid,c_unc_accuracy_valid_only_pct,c_comp_accuracy_valid_only_pct,c_unc_accuracy_end_to_end_pct,c_comp_accuracy_end_to_end_pct,delta_pp,uncertainty_high_correct,uncertainty_cases,uncertainty_high_false_positive_rate_pct,uncertain_scope_correct,compatibility_band_accuracy_valid_only_pct,invalid_json_rate_pct,critical_out_to_in,in_to_out
+nousresearch/hermes-3-llama-3.1-70b,48,48,100.0,87.5,100.0,87.5,-12.5,6,18,0.0,18,87.5,0.0,0,0
+meta-llama/llama-3.3-70b-instruct,48,48,97.9,75.0,97.9,75.0,-22.9,17,18,0.0,17,75.0,0.0,0,0
+qwen/qwen3-8b,48,48,97.9,70.8,97.9,70.8,-27.1,15,18,0.0,17,70.8,0.0,0,0
+anthropic/claude-3-haiku,48,48,87.5,87.5,87.5,87.5,0.0,9,18,0.0,12,87.5,0.0,0,0
+openai/gpt-4o-mini,48,48,81.2,81.2,81.2,81.2,0.0,0,18,0.0,9,81.2,0.0,0,0
+cognitivecomputations/dolphin-mistral-24b-venice-edition,48,48,75.0,75.0,75.0,75.0,0.0,3,18,0.0,6,75.0,0.0,0,0
+microsoft/wizardlm-2-8x22b,48,47,76.6,76.6,75.0,75.0,0.0,2,18,0.0,7,76.6,2.1,0,0
+mistralai/ministral-8b-2512,48,48,62.5,62.5,62.5,62.5,0.0,0,18,0.0,0,62.5,0.0,0,0
+openai/gpt-oss-safeguard-20b,48,18,83.3,66.7,31.2,25.0,-6.2,5,18,0.0,6,66.7,62.5,0,0
+meta-llama/llama-guard-4-12b,48,0,,,0.0,0.0,0.0,0,18,0.0,0,,100.0,0,0

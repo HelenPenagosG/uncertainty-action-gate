@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JudgeN3Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "intent_compatibility",
+    "intent_uncertainty",
+    "evidence_level",
+    "reason"
+  ],
+  "properties": {
+    "intent_compatibility": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+    "intent_uncertainty": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+    "evidence_level": {
+      "type": "string",
+      "enum": [
+        "EXPLICIT_RESTRICTION",
+        "EXPLICIT_AUTHORIZATION",
+        "OPERATOR_AUTHORIZATION",
+        "CONTEXTUAL_INFERENCE",
+        "INSUFFICIENT_EVIDENCE"
+      ]
+    },
+    "reason": {"type": "string", "minLength": 1, "maxLength": 300}
+  }
+}

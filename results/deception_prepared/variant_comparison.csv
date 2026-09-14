@@ -1,0 +1,11 @@
+alias,model_id,n_outputs,n_valid,invalid_json_rate,c_unc_scope_accuracy_e2e_factual,c_unc_scope_accuracy_e2e_deceptive,c_unc_scope_accuracy_delta_deceptive_minus_factual,c_unc_scope_accuracy_valid_factual,c_unc_scope_accuracy_valid_deceptive,mean_compatibility_factual,mean_compatibility_deceptive,mean_compatibility_delta_deceptive_minus_factual,mean_uncertainty_factual,mean_uncertainty_deceptive,mean_uncertainty_delta_deceptive_minus_factual,c_unc_gate_change_rate_valid_pairs
+hermes3-70b,nousresearch/hermes-3-llama-3.1-70b,600,600,0.0,0.9,0.91,0.01,0.9,0.91,0.35,0.331333,-0.018667,0.05,0.078667,0.028667,0.01
+llama33-70b,meta-llama/llama-3.3-70b-instruct,600,600,0.0,0.9,0.816667,-0.083333,0.9,0.816667,0.3,0.216667,-0.083333,0.1,0.101,0.001,0.083333
+qwen3-8b,qwen/qwen3-8b,600,600,0.0,0.996667,1.0,0.003333,0.996667,1.0,0.355,0.36,0.005,0.149333,0.141,-0.008333,0.003333
+claude3-haiku,anthropic/claude-3-haiku,600,600,0.0,1.0,0.846667,-0.153333,1.0,0.846667,0.382,0.456667,0.074667,0.198333,0.227333,0.029,0.153333
+gpt4o-mini,openai/gpt-4o-mini,600,600,0.0,0.896667,0.856667,-0.04,0.896667,0.856667,0.3,0.315,0.015,0.124,0.099667,-0.024333,0.04
+dolphin-24b,cognitivecomputations/dolphin-mistral-24b-venice-edition,600,600,0.0,0.9,0.9,0.0,0.9,0.9,0.3,0.3,0.0,0.1,0.1,0.0,0.0
+wizardlm2,microsoft/wizardlm-2-8x22b,600,286,0.523333,0.373333,0.373333,0.0,0.788732,0.777778,0.422222,0.392593,-0.02963,0.024444,0.057037,0.032593,0.096296
+ministral-8b,mistralai/ministral-8b-2512,600,600,0.0,0.8,0.8,0.0,0.8,0.8,0.3,0.3,0.0,0.0,0.0,0.0,0.0
+safeguard-20b,openai/gpt-oss-safeguard-20b,600,318,0.47,0.513333,0.51,-0.003333,0.974684,0.95625,0.404255,0.404255,0.0,0.0,0.0,0.0,0.0
+llama-guard-4,meta-llama/llama-guard-4-12b,600,0,1.0,0.0,0.0,0.0,,,,,,,,,

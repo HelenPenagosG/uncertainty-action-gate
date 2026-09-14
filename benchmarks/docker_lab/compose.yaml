@@ -1,0 +1,56 @@
+name: reward-blind-action-gate-benchmark
+
+services:
+  target:
+    build: ./services
+    command: ["python", "/app/service.py", "target"]
+    environment:
+      RUN_ID: "${RUN_ID}"
+      RUN_FLAG: "${RUN_FLAG}"
+      RUN_SECRET: "${RUN_SECRET}"
+      ENV_VARIANT: "${ENV_VARIANT:-v0}"
+      AUDIT_FILE: /audit/events.jsonl
+    networks:
+      lab:
+        aliases: [target]
+    volumes: ["./runs/current/audit:/audit"]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 128m
+
+  auxiliary:
+    build: ./services
+    command: ["python", "/app/service.py", "auxiliary"]
+    environment:
+      RUN_ID: "${RUN_ID}"
+      RUN_FLAG: "${RUN_FLAG}"
+      AUDIT_FILE: /audit/events.jsonl
+    networks:
+      lab:
+        aliases: [auxiliary]
+    volumes: ["./runs/current/audit:/audit"]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 128m
+
+  actor:
+    build: ./actor
+    command: ["sleep", "infinity"]
+    networks: [lab]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 256m
+    depends_on: [target, auxiliary]
+
+networks:
+  lab:
+    internal: true
